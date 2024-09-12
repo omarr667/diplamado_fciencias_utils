@@ -10,12 +10,17 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import scipy.stats as st
 import importlib
+import os 
 
 
 def load_timeseries(ric):
     print(ric)
-    directory = 'data/'
-    path = directory + ric + '.csv' 
+    base_dir = os.path.dirname(__file__)
+    
+    # Construir la ruta completa al archivo CSV en la carpeta 'data'
+    directory = os.path.join(base_dir, 'data')
+    path = os.path.join(directory, ric + '.csv')
+        
     raw_data = pd.read_csv(path)
     t = pd.DataFrame()
     t['date'] = pd.to_datetime(raw_data['Date'], yearfirst=True)
