@@ -14,7 +14,7 @@ import importlib
 
 def load_timeseries(ric):
     print(ric)
-    directory = 'C:\\Users\\meval\\.spyder-py3\\Diplomado_2024\\examenes\\data\\' # hardcoded
+    directory = 'data/'
     path = directory + ric + '.csv' 
     raw_data = pd.read_csv(path)
     t = pd.DataFrame()
